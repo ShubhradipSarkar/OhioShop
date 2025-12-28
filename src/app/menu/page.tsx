@@ -8,6 +8,7 @@ interface MenuItem {
   desc?: string;
 }
 import { ArrowLeftIcon } from "lucide-react";
+import { Footer } from "../page";
 const MENU: Record<string, MenuItem[]> = {
   "Appetizers": [
     { name: "Falafel Appetizer", price: "$10.49", desc: "Ground fava beans, herbs, and spices blended and rolled in sesame seeds." },
@@ -105,6 +106,7 @@ export default function MenuPage() {
         ))}
 
       </div>
+      <Footer/>
     </section>
   );
 }

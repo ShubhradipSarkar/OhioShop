@@ -278,7 +278,7 @@ function Contact() {
   );
 }
 
-function Footer() {
+export function Footer() {
   return (
     <footer className="bg-neutral-950 text-neutral-300 pt-20 pb-10 relative overflow-hidden">
   {/* subtle background accent */}
