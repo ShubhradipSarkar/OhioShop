@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Julie Bernard",
+    "role": "Founder & CEO",
+    "rating": 5,
+    "text": "UI Blox has revolutionized my design process. Its intuitive interface and robust features save me so much time."
+  },
+  {
+    "name": "David Miller",
+    "role": "Lead Software Engineer",
+    "rating": 5,
+    "text": "The best UI kit I’ve used for Framer. UI Blox is a game-changer for designers."
+  },
+  {
+    "name": "Sarah Collins",
+    "role": "Product Designer",
+    "rating": 5,
+    "text": "Absolutely love UI Blox! The clean design and ease of use are unmatched."
+  },
+  {
+    "name": "Amit Roy",
+    "role": "Startup Founder",
+    "rating": 5,
+    "text": "The intuitive interface simplifies tasks, making it perfect for both beginners and seasoned professionals."
+  },
+  {
+    "name": "Neha Sharma",
+    "role": "Marketing Lead",
+    "rating": 5,
+    "text": "Clean UI, fast workflow, and very intuitive. This tool genuinely improves productivity."
+  },
+  {
+    "name": "Rahul Verma",
+    "role": "Product Manager",
+    "rating": 5,
+    "text": "One of the most thoughtfully designed UI systems I’ve used in years."
+  }
+]

@@ -1,10 +1,11 @@
 "use client";
-
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Clock, Star, Utensils, Wine } from "lucide-react";
-
+import Reviews from "@/components/Reviews";
+import { div } from "framer-motion/client";
 // PREMIUM RESTAURANT WEBSITE – DESIGNED TO BE CLEARLY BETTER THAN res-menu TEMPLATE SITES
 // Pages represented here as sections (split into routes easily)
 
@@ -15,7 +16,7 @@ export default function PremiumRestaurantSite() {
       <Hero />
       <Highlights />
       <Menu />
-      <Reviews />
+      <Reviews_ />
       <Gallery />
       <Reservations />
       <Contact />
@@ -45,24 +46,74 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section className="h-screen relative flex items-center justify-center">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559339352-11d035aa65de')] bg-cover bg-center opacity-40" />
+    <section className="h-screen relative flex items-center justify-center overflow-hidden">
+
+      {/* Background collage */}
+      <div className="absolute inset-0 -z-10">
+
+        {/* Image 1 */}
+        <div className="absolute top-10 left-10 w-[40%] h-[45%] rotate-[-6deg] rounded-3xl overflow-hidden">
+          <Image
+            src="/beer.jpg"
+            alt="Craft beer"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Image 2 */}
+        <div className="absolute bottom-16 left-[30%] w-[35%] h-[40%] rotate-[4deg] rounded-3xl overflow-hidden">
+          <Image
+            src="/patty.jpg"
+            alt="Dessert"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        {/* Image 3 */}
+        <div className="absolute top-24 right-10 w-[35%] h-[50%] rotate-[8deg] rounded-3xl overflow-hidden">
+          <Image
+            src="/rum.jpg"
+            alt="Whiskey bottle"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      </div>
+
+      {/* Content */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         className="relative text-center px-6 max-w-4xl"
       >
-        <h2 className="text-6xl md:text-7xl font-extrabold mb-6">Greek Soul. Modern Fire.</h2>
+        <h2 className="text-6xl md:text-7xl font-extrabold mb-6">
+          Greek Soul. Modern Fire.
+        </h2>
+
         <p className="text-lg text-white/80 mb-8">
-          Elevated Mediterranean tavern experience with handcrafted cocktails & bold flavors.
+          At OPA Grill & Tavern, Mediterranean and New American cuisines converge,
+          creating a vibrant dining experience in Delaware, OH. Join us for bold
+          flavors, a full bar, and a welcoming atmosphere.
         </p>
+
         <div className="flex gap-4 justify-center">
-          <Button  className="bg-amber-400 text-black px-8 py-6 rounded-xl text-lg"><a href="menu">View Menu</a></Button>
-          <Button variant="outline" className="px-8 py-6 rounded-xl text-lg">Order Online</Button>
+          <Button className="bg-amber-400 text-black px-8 py-6 rounded-xl text-lg">
+            <a href="/menu">View Menu</a>
+          </Button>
+          <Button variant="outline" className="px-8 py-6 rounded-xl text-lg">
+            Order Online
+          </Button>
         </div>
       </motion.div>
     </section>
+
   );
 }
 
@@ -169,24 +220,10 @@ function Menu() {
   );
 }
 
-function Reviews() {
+function Reviews_() {
   return (
-    <section id="reviews" className="py-28 bg-neutral-950">
-      <div className="max-w-5xl mx-auto px-6 text-center">
-        <h3 className="text-4xl font-bold mb-14">What Guests Say</h3>
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          className="bg-neutral-900 p-10 rounded-3xl border border-white/10"
-        >
-          <p className="text-lg text-white/80 mb-6">
-            “Hands down the best Greek food in town. Atmosphere, service, and cocktails are unreal.”
-          </p>
-          <div className="flex justify-center gap-1">
-            {[1,2,3,4,5].map(i => <Star key={i} className="text-amber-400" />)}
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    <div id="reviews"><Reviews /></div>
+    
   );
 }
 function Reviews2() {
@@ -241,31 +278,17 @@ function Reservations() {
     <section className="py-28 bg-gradient-to-r from-amber-400 to-amber-500 text-black text-center">
       <h3 className="text-4xl font-bold mb-4">Reserve Your Table</h3>
       <p className="mb-8">Walk-ins welcome. Reservations recommended.</p>
-      <Button className="bg-black text-white px-10 py-6 rounded-xl text-lg hover:bg-neutral-900">
+      <a href="tel:+919876543210"><Button className="bg-black text-white px-10 py-6 rounded-xl text-lg hover:bg-neutral-900">
         Book Now
-      </Button>
+      </Button></a>
+      
     </section>
   );
 }
 
 function Contact() {
   return (
-    <section id="contact" className="py-28 bg-neutral-950">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center">
-        <div>
-          <MapPin className="mx-auto mb-3 text-amber-400" />
-          <p>Chicago, IL</p>
-        </div>
-        <div>
-          <Phone className="mx-auto mb-3 text-amber-400" />
-          <p>(312) 555‑0142</p>
-        </div>
-        <div>
-          <Clock className="mx-auto mb-3 text-amber-400" />
-          <p>Mon–Sun · 4PM – 12AM</p>
-        </div>
-      </div>
-    </section>
+    <></>
   );
 }
 
