@@ -54,7 +54,7 @@ function Hero() {
       <div className="absolute inset-0 -z-10">
 
         {/* Image 1 */}
-        <div className="absolute top-10 left-10 w-[40%] h-[45%] rotate-[-6deg] rounded-3xl overflow-hidden">
+        <div className="absolute top-10  left-10 w-[40%] h-[45%] rotate-[-6deg] rounded-3xl overflow-hidden">
           <Image
             src="/beer.jpg"
             alt="Craft beer"
@@ -109,8 +109,9 @@ function Hero() {
           <Button className="bg-amber-400 text-black px-8 py-6 rounded-xl text-lg">
             <a href="/menu">View Menu</a>
           </Button>
-          <Button variant="outline" className="px-8 py-6 rounded-xl text-lg">
-            Order Online
+          <Button variant="outline" className="px-8 py-6 text-black rounded-xl text-lg">
+            <a href="tel:+919876543210">Order Online</a>
+            
           </Button>
         </div>
       </motion.div>
@@ -119,101 +120,170 @@ function Hero() {
   );
 }
 
-function Highlights() {
+export function Highlights() {
   const features = [
-    { icon: <Utensils />, title: "Authentic Recipes", text: "Traditional Greek flavors with a modern twist." },
-    { icon: <Wine />, title: "Crafted Cocktails", text: "Premium spirits & house infusions." },
-    { icon: <Star />, title: "Top Rated", text: "Loved by locals & travelers alike." },
+    {
+      icon: Utensils,
+      title: "Authentic Recipes",
+      text: "Traditional Greek flavors with a modern twist.",
+    },
+    {
+      icon: Wine,
+      title: "Crafted Cocktails",
+      text: "Premium spirits & house infusions.",
+    },
+    {
+      icon: Star,
+      title: "Top Rated",
+      text: "Loved by locals & travelers alike.",
+    },
   ];
 
   return (
-    <section className="py-24 bg-neutral-950">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-        {features.map((f, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ y: -8 }}
-            className="bg-neutral-900 p-10 rounded-3xl border border-white/10 text-center"
-          >
-            <div className="text-amber-400 mb-4 mx-auto">{f.icon}</div>
-            <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
-            <p className="text-white/60">{f.text}</p>
-          </motion.div>
-        ))}
+    <section className="relative bg-neutral-950 py-28 overflow-hidden">
+      {/* subtle ambient glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(600px_at_50%_50%,rgba(245,158,11,0.12),transparent_90%)]" />
+
+      <div className="relative max-w-6xl mx-auto px-6 grid gap-10 md:grid-cols-3">
+        {features.map((f, i) => {
+          const Icon = f.icon;
+
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ y: -6 }}
+              className="
+                group
+                rounded-3xl
+                bg-white/[0.03]
+                backdrop-blur
+                p-10
+                border border-white/10
+                shadow-[0_0_0_1px_rgba(255,255,255,0.03)]
+                hover:shadow-[0_20px_60px_-20px_rgba(245,158,11,0.25)]
+                transition
+              "
+            >
+              {/* Icon container */}
+              <div className="
+                mx-auto mb-6
+                flex h-14 w-14 items-center justify-center
+                rounded-full
+                bg-amber-400/10
+                text-amber-400
+                group-hover:bg-amber-400/20
+                transition
+              ">
+                <Icon className="h-6 w-6" />
+              </div>
+
+              <h3 className="text-lg font-semibold tracking-wide text-white mb-3">
+                {f.title}
+              </h3>
+
+              <p className="text-sm leading-relaxed text-white/60">
+                {f.text}
+              </p>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
 }
-
-function Menu() {
+export function Menu() {
   const items = [
     {
       name: "Lamb Gyro Platter",
       desc: "Slow roasted, tzatziki, pita",
       price: "$26",
-      img: "https://images.unsplash.com/photo-1604908554168-3d47d1cbb4f0",
+      img: "/albums-1.jpg",
     },
     {
       name: "Grilled Octopus",
       desc: "Charred lemon, olive oil",
       price: "$29",
-      img: "https://images.unsplash.com/photo-1544025162-d76694265947",
+      img: "/albums-2.jpg",
     },
     {
       name: "Spanakopita",
       desc: "Spinach, feta, flaky phyllo",
       price: "$18",
-      img: "https://images.unsplash.com/photo-1625944525533-473f1a3b8b6b",
+      img: "/albums-8.jpg",
     },
     {
       name: "Moussaka",
       desc: "Eggplant, beef, béchamel",
       price: "$24",
-      img: "https://images.unsplash.com/photo-1626078299844-45f38a3bcd08",
+      img: "/patty.jpg",
     },
   ];
 
   return (
-    <section id="menu" className="py-28 relative overflow-hidden">
+    <section id="menu" className="py-28 bg-neutral-950 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
-        <h3 className="text-4xl font-bold text-center mb-20">Featured Dishes</h3>
+        <h3 className="text-4xl font-bold text-center mb-24">
+          Featured Dishes
+        </h3>
 
-        <div className="grid md:grid-cols-2 gap-20 relative">
+        <div className="grid gap-20 md:grid-cols-2">
           {items.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="relative"
             >
-              {/* Floating round image */}
-              <motion.div
-                animate={{ y: [0, -12, 0] }}
-                transition={{
-                  duration: 4 + i,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-16 -left-6 w-40 h-40 rounded-full overflow-hidden shadow-2xl border-4 border-amber-400"
-              >
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
+              {/* Card (anchor) */}
+              <div className="relative bg-neutral-900 rounded-3xl border border-white/10 pt-28 px-8 pb-8">
+                {/* Floating Image */}
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{
+                    duration: 5 + i,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="
+                    absolute
+                    -top-16
+                    left-8
+                    w-32 h-32
+                    rounded-full
+                    overflow-hidden
+                    border-4 border-amber-400
+                    shadow-2xl
+                    bg-black
+                  "
+                >
+                  <Image
+                    src={item.img}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
 
-              {/* Card */}
-              {/* <Card className="bg-neutral-900 border border-white/10 rounded-3xl pt-24">
-                <CardContent className="p-8">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="text-xl font-semibold">{item.name}</h4>
-                    <span className="text-amber-400 font-bold">{item.price}</span>
-                  </div>
-                  <p className="text-white/60">{item.desc}</p>
-                </CardContent>
-              </Card> */}
+                {/* Content */}
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="text-xl font-semibold text-white">
+                    {item.name}
+                  </h4>
+                  <span className="text-amber-400 font-bold">
+                    {item.price}
+                  </span>
+                </div>
+
+                <p className="text-white/60 text-sm">
+                  {item.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
