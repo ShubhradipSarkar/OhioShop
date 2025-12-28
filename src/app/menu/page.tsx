@@ -7,7 +7,7 @@ interface MenuItem {
   price: string;
   desc?: string;
 }
-import { ArrowLeftIcon } from "lucide-react";
+import { ArrowLeftIcon, Wine } from "lucide-react";
 import { Footer } from "../page";
 const MENU: Record<string, MenuItem[]> = {
   "Appetizers": [
@@ -67,14 +67,14 @@ const MENU: Record<string, MenuItem[]> = {
 export default function MenuPage() {
   return (
     <section className=" bg-[#0a0a0a] text-white">
-      <Button variant="outline" size="icon" aria-label="Go Back" className="m-4 p-4">
-          <a href="/../"><ArrowLeftIcon color="black" radius={50} /></a>
+      <Button variant="default" size="icon" aria-label="Go Back" className="fixed relative m-4 p-4 bg-amber-400">
+          <a href="/../"><ArrowLeftIcon color="black" radius={50} className="bg-amber-400" /></a>
           
           
         </Button>
       <div className="max-w-6xl mx-auto px-6">
         
-        <h1 className="text-4xl font-bold text-center mb-12">Our Menu</h1>
+        <h1 className="text-4xl font-bold text-center mb-12"><div className="justify-center items-center flex flex-row">Our Menu<Wine color="#FFC107"/></div></h1>
 
         {Object.entries(MENU).map(([category, items]) => (
           <div key={category} className="mb-12">
