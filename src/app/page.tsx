@@ -12,7 +12,7 @@ import ImageCarousel from "./test/page";
 
 export default function PremiumRestaurantSite() {
   return (
-    <div className="bg-[#0b0b0b] text-white min-h-screen">
+    <div className="bg-[#0b0b0b] text-white min-h-screen overflow-hidden">
       <Navbar />
       <Hero />
       <Highlights />

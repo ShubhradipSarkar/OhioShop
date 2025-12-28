@@ -22,7 +22,7 @@ const images = [
 
 export default function ImageCarousel() {
   return (
-    <motion.section className="w-full bg-[#0b0b0b] py-16" initial={{ opacity: 0, x: 30 }}
+    <motion.section className="relative bg-[#0b0b0b] relative  overflow-hidden" initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             // viewport={{ once: true }}
             // animate={{ y: [0, -4, 0] }}
@@ -31,12 +31,25 @@ transition={{
   // repeat: Infinity,
   ease: "easeInOut",
 }}>
+    <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="relative max-w-6xl mx-auto text-center mb-14"
+      >
+        <h2 className="text-3xl font-bold text-white">
+          Photos & Gallery
+        </h2>
+        <p className="text-gray-400 mt-3">
+          See the things you get at Opa
+        </p>
+      </motion.div>
       <Carousel
         opts={{ align: "start" }}
         className="relative mx-auto w-full max-w-6xl"
       >
         {/* Slides */}
-        <CarouselContent className="-ml-4">
+        <CarouselContent className="ml-0 -mr-6">
           {images.map((src, index) => (
             
             <CarouselItem
@@ -44,7 +57,7 @@ transition={{
               
               className="
                 pl-4
-                basis-[85%]
+                basis-[65%]
                 md:basis-1/2
                 lg:basis-1/3
               "
