@@ -38,7 +38,8 @@ function Navbar() {
           <a href="#contact" className="hover:text-amber-400">Contact</a>
         </div>
         <Button className="bg-amber-400 text-black hover:bg-amber-500 rounded-full px-6">
-          Reserve
+          <a href="/menu">View Menu</a>
+          
         </Button>
       </div>
     </nav>

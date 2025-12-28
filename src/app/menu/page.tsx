@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-
+import { Button } from "@/components/ui/button";
 interface MenuItem {
   name: string;
   price: string;
   desc?: string;
 }
-
+import { ArrowLeftIcon } from "lucide-react";
 const MENU: Record<string, MenuItem[]> = {
   "Appetizers": [
     { name: "Falafel Appetizer", price: "$10.49", desc: "Ground fava beans, herbs, and spices blended and rolled in sesame seeds." },
@@ -65,8 +65,14 @@ const MENU: Record<string, MenuItem[]> = {
 
 export default function MenuPage() {
   return (
-    <section className="py-20 bg-[#0a0a0a] text-white">
+    <section className=" bg-[#0a0a0a] text-white">
+      <Button variant="outline" size="icon" aria-label="Go Back" className="m-4 p-4">
+          <a href="/../"><ArrowLeftIcon color="black" radius={50} /></a>
+          
+          
+        </Button>
       <div className="max-w-6xl mx-auto px-6">
+        
         <h1 className="text-4xl font-bold text-center mb-12">Our Menu</h1>
 
         {Object.entries(MENU).map(([category, items]) => (
