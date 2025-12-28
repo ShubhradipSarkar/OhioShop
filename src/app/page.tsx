@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Clock, Star, Utensils, Wine } from "lucide-react";
 import Reviews from "@/components/Reviews";
 import { div } from "framer-motion/client";
+import ImageCarousel from "./test/page";
 // PREMIUM RESTAURANT WEBSITE – DESIGNED TO BE CLEARLY BETTER THAN res-menu TEMPLATE SITES
 // Pages represented here as sections (split into routes easily)
 
@@ -248,27 +249,11 @@ function Reviews2() {
 }
 
 function Gallery() {
-  const imgs = [
-    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0",
-    "https://images.unsplash.com/photo-1555992336-03a23c7b20b0",
-    "https://images.unsplash.com/photo-1541544741938-0af808871cc0",
-  ];
+  
 
   return (
     <section id="gallery" className="py-28">
-      <div className="max-w-6xl mx-auto px-6">
-        <h3 className="text-4xl font-bold text-center mb-16">Inside OPA</h3>
-        <div className="grid md:grid-cols-3 gap-6">
-          {imgs.map((src, i) => (
-            <motion.img
-              key={i}
-              whileHover={{ scale: 1.05 }}
-              src={src}
-              className="rounded-3xl shadow-2xl"
-            />
-          ))}
-        </div>
-      </div>
+      <ImageCarousel/>
     </section>
   );
 }

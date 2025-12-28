@@ -14,7 +14,7 @@ function Stars({ count }: any) {
 
 export default function Reviews() {
   return (
-    <section className="bg-[radial-gradient(circle_at_center,rgba(250,204,21,0.18),transparent_75%)] py-20 px-6">
+    <section className="bg-[radial-gradient(circle_at_center,rgba(250,204,21,0.18),transparent_105%)]  py-20 px-6">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
